@@ -1,6 +1,6 @@
-var should = require('should'), 
-    request = require('supertest'), 
-    express = require('../config/express'), 
+var should = require('should'),
+    request = require('supertest'),
+    express = require('../config/express'),
     Listing = require('../models/listings.server.model.js');
 
 /* Global variables */
@@ -50,10 +50,10 @@ describe('Listings CRUD tests', function() {
 
   it('should be able to save a listing', function(done) {
     var listing = {
-      code: 'CEN3035', 
-      name: 'Introduction to Software Engineering', 
+      code: 'CEN3035',
+      name: 'Introduction to Software Engineering',
       address: '432 Newell Dr, Gainesville, FL 32611'
-    };
+    }
     agent.post('/api/listings')
       .send(listing)
       .expect(200)
@@ -70,8 +70,8 @@ describe('Listings CRUD tests', function() {
 
   it('should be able to update a listing', function(done) {
     var updatedListing = {
-      code: 'CEN3031', 
-      name: 'Introduction to Software Engineering', 
+      code: 'CEN3031',
+      name: 'Introduction to Software Engineering',
       address: '432 Newell Dr, Gainesville, FL 32611'
     };
 
@@ -95,7 +95,7 @@ describe('Listings CRUD tests', function() {
         should.not.exist(err);
         should.exist(res);
 
-        agent.get('/api/listings/' + id) 
+        agent.get('/api/listings/' + id)
           .expect(400)
           .end(function(err, res) {
             id = undefined;
